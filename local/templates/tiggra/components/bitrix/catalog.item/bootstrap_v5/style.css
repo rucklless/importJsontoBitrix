@@ -5,7 +5,7 @@
     display: grid;
 }
 
-.catalog-list .item-goods {
+.item-goods {
     position: relative;
     z-index: 1;
     text-decoration: none;
@@ -14,17 +14,17 @@
     background: #fff;
     padding: 1rem;
 }
-.catalog-list .item-goods:hover{
+.item-goods:hover{
     border: .1rem solid #ededed;
     box-shadow: 0 0 20px rgb(0 0 0 / 10%);
 }
-.catalog-list .item-goods .img {
+.item-goods .img {
     overflow: hidden;
     position:relative;
     height: 220px;
 }
 
-.catalog-list .item-goods .img img {
+.item-goods .img img {
     -webkit-transition: -webkit-transform 0.1s ease-in;
     transition: -webkit-transform 0.1s ease-in;
     -o-transition: transform 0.1s ease-in;
@@ -32,35 +32,35 @@
     transition: transform 0.1s ease-in, -webkit-transform 0.1s ease-in;
 }
 
-.catalog-list .item-goods .img:hover img {
+.item-goods .img:hover img {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
 }
 
-.catalog-list .item-goods .body {
+.item-goods .body {
     position: relative;
     display: flex;
     flex-wrap: wrap;
     /*border-top:.1rem solid #ededed;*/
 }
-.catalog-list .item-goods .body .price-block{
+.item-goods .body .price-block{
     order:1;
     font-weight: 700;
     font-size: 1.9rem;
     margin-top: 1.2rem;
 }
-.catalog-list .item-goods .body .title{
+.item-goods .body .title{
     order:2;
 }
 
-.catalog-list .item-goods .description {
+.item-goods .description {
     padding: 1rem;
     font-size: 1.3rem;
     color: #000;
 }
 
-.catalog-list .item-goods .title a{
+.item-goods .title a{
     bottom: 100%;
     /* position: absolute; */
     padding: 5px 5px 5px 1rem;
@@ -80,7 +80,7 @@
     font-size:1.4rem;
 }
 
-/*.catalog-list .item-goods .title:before {
+/*.item-goods .title:before {
     content: '';
     display: block;
     position: absolute;
@@ -94,12 +94,12 @@
 
 
 
-.catalog-list .item-goods .price {
+.item-goods .price {
     position: absolute;
     right: 0px;
 }
 
-.catalog-list .item-goods footer {
+.item-goods footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -108,7 +108,7 @@
     justify-content: flex-end;
 }
 
-.catalog-list .item-goods footer .more {
+.item-goods footer .more {
     background: #2C2A26;
     border-left: 10px solid #2C2A26;
     right: 0px;
@@ -126,7 +126,7 @@
     cursor: pointer;
 }
 
-.catalog-list .item-goods footer .more:before {
+.item-goods footer .more:before {
     content: '';
     display: block;
     position: absolute;

@@ -9,7 +9,7 @@ $component = $this->getComponent();
 $arParams = $component->applyTemplateModifications();
 
 $arResult['DEL_URL_TEMPLATE'] = 'action=DEL&id=#ID#';
-
+$arParams['SALES_PITCH_URL'] = '/personal/sales_pitch.php';
 
 /*foreach ($arResult['SKU_PROPS'] as &$prop){
 	foreach ($prop['VALUES'] as &$val){

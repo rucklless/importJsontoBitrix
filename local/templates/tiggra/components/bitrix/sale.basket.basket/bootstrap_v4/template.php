@@ -15,7 +15,7 @@ use Bitrix\Main\Localization\Loc;
  * @var CBitrixComponentTemplate $this
  * @var array $giftParameters
  */
-
+?>1<pre><?print_r($arParams)?></pre>2<?
 if (!isset($arParams['DISPLAY_MODE']) || !in_array($arParams['DISPLAY_MODE'], array('extended', 'compact')))
 {
 	$arParams['DISPLAY_MODE'] = 'extended';

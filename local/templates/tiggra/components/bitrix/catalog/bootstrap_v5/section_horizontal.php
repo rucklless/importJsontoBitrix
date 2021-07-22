@@ -10,7 +10,7 @@ use Bitrix\Main\ModuleManager;
  * @var array $arResult
  * @var array $arCurSection
  */
-
+?>sfdgsdfg<?php
 if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] === 'Y')
 {
 	$basketAction = isset($arParams['COMMON_ADD_TO_BASKET_ACTION']) ? $arParams['COMMON_ADD_TO_BASKET_ACTION'] : '';
@@ -106,7 +106,7 @@ else
 								<?
 							}
 
-							CBitrixComponent::includeComponentClass('bitrix:sale.products.gift.section');
+							/*CBitrixComponent::includeComponentClass('bitrix:sale.products.gift.section');
 							$APPLICATION->IncludeComponent('bitrix:sale.products.gift.section', 'bootstrap_v4', array(
 									'IBLOCK_TYPE' => $arParams['IBLOCK_TYPE'],
 									'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -182,7 +182,7 @@ else
 								),
 								$component,
 								array("HIDE_ICONS" => "Y")
-							);
+							);*/
 							?>
 						</div>
 						<?

@@ -74,6 +74,7 @@
 
 		this.visual = {};
 		this.basketMode = '';
+		this.salesPitchMode = '';
 		this.product = {
 			checkQuantity: false,
 			maxQuantity: 0,
@@ -108,6 +109,18 @@
 			in_basket: [],
 			checkSetInBasket: false
 		};
+		this.salesPitchData = {
+			quantity: 'quantity',
+			props: 'prop',
+			basketUrl: '',
+			sku_props: '',
+			sku_props_var: 'basket_props',
+			add_url: '',
+			buy_url: '',
+			del_url: '',
+			in_prop: [],
+			checkSetInBasket: false
+		}
 		this.compareData = {
 			compareUrl: '',
 			compareDeleteUrl: '',
@@ -153,6 +166,7 @@
 		this.obBuyBtn = null;
 		this.obBuyDelBtn = null;
 		this.obAddToBasketBtn = null;
+		this.obAddSalesPitchBtn = null;
 		this.obBasketActions = null;
 		this.obNotAvail = null;
 		this.obSubscribe = null;
@@ -197,6 +211,7 @@
 
 		this.obPopupWin = null;
 		this.basketUrl = '';
+		this.salesPitchUrl = '';
 		this.basketParams = {};
 
 		this.errorCode = 0;
@@ -226,6 +241,7 @@
 			}
 
 			this.initBasketData();
+			this.initSalesPitchData();
 			this.initCompareData();
 		}
 
@@ -352,6 +368,7 @@
 				}
 				else
 				{
+					console.log(this.visual.PRICE_TOTAL)
 					this.obPrice.total = BX(this.visual.PRICE_TOTAL);
 					if (this.config.showOldPrice)
 					{
@@ -380,11 +397,13 @@
 					if (BX.util.in_array('BUY', this.config.basketAction))
 					{
 						this.obBuyBtn = BX(this.visual.BUY_LINK);
+						this.obAddSalesPitchBtn = BX(this.visual.SALES_PITCH_LINK);
 					}
 
 					if (BX.util.in_array('ADD', this.config.basketAction))
 					{
 						this.obAddToBasketBtn = BX(this.visual.ADD_BASKET_LINK);
+						this.obAddSalesPitchBtn = BX(this.visual.ADD_SALES_PITCH_LINK);
 					}
 				}
 				this.obNotAvail = BX(this.visual.NOT_AVAILABLE_MESS);
@@ -620,6 +639,8 @@
 
 				this.obBuyBtn && BX.bind(this.obBuyBtn, 'click', BX.proxy(this.buyBasket, this));
 				this.obBuyDelBtn && BX.bind(this.obBuyDelBtn, 'click',  BX.proxy(this.deleteBasket, this));
+				this.obAddSalesPitchBtn && BX.bind(this.obAddSalesPitchBtn, 'click', BX.proxy(this.obAddSalesPitch, this));
+				//this.obDelOffersBtn && BX.bind(this.obBuyDelBtn, 'click',  BX.proxy(this.deleteBasket, this));
 				this.smallCardNodes.buyButton && BX.bind(this.smallCardNodes.buyButton, 'click', BX.proxy(this.buyBasket, this));
 
 				this.obAddToBasketBtn && BX.bind(this.obAddToBasketBtn, 'click', BX.proxy(this.add2Basket, this));
@@ -869,6 +890,60 @@
 					this.basketData.del_url = this.params.BASKET.DEL_URL_TEMPLATE;
 				}
 				if (this.basketData.add_url === '' && this.basketData.buy_url === '' && this.basketData.del_url)
+				{
+					this.errorCode = -1024;
+				}
+			}
+			this.checkBasket();
+		},
+
+		initSalesPitchData: function()
+		{
+			if (this.params.SALES_PITCH && typeof this.params.SALES_PITCH === 'object')
+			{
+
+				if (this.productType === 1 || this.productType === 2)
+				{
+					this.salesPitchData.useProps = this.params.SALES_PITCH.ADD_PROPS;
+					this.salesPitchData.emptyProps = this.params.SALES_PITCH.EMPTY_PROPS;
+				}
+
+				if (this.params.SALES_PITCH.QUANTITY)
+				{
+					this.salesPitchData.quantity = this.params.SALES_PITCH.QUANTITY;
+				}
+
+				if (this.params.SALES_PITCH.PROPS)
+				{
+					this.salesPitchData.props = this.params.SALES_PITCH.PROPS;
+				}
+
+				if (this.params.SALES_PITCH.BASKET_URL)
+				{
+					this.salesPitchData.basketUrl = this.params.SALES_PITCH.BASKET_URL;
+				}
+
+				if (this.productType === 3)
+				{
+					if (this.params.SALES_PITCH.SKU_PROPS)
+					{
+						this.salesPitchData.sku_props = this.params.SALES_PITCH.SKU_PROPS;
+					}
+				}
+				if (this.params.SALES_PITCH.ADD_URL_TEMPLATE)
+				{
+					this.salesPitchData.add_url = this.params.SALES_PITCH.ADD_URL_TEMPLATE;
+				}
+
+				if (this.params.SALES_PITCH.BUY_URL_TEMPLATE)
+				{
+					this.salesPitchData.buy_url = this.params.SALES_PITCH.BUY_URL_TEMPLATE;
+				}
+				if (this.params.SALES_PITCH.DEL_URL_TEMPLATE)
+				{
+					this.salesPitchData.del_url = this.params.BASKET.DEL_URL_TEMPLATE;
+				}
+				if (this.salesPitchData.add_url === '' && this.salesPitchData.buy_url === '' && this.salesPitchData.del_url)
 				{
 					this.errorCode = -1024;
 				}
@@ -1946,12 +2021,13 @@
 				this.currentPriceMode = newOffer.ITEM_PRICE_MODE;
 				this.currentPrices = newOffer.ITEM_PRICES;
 				this.currentPriceSelected = newOffer.ITEM_PRICE_SELECTED;
-				console.log('quantitySet');
+
 				this.currentQuantityRanges = newOffer.ITEM_QUANTITY_RANGES;
 				this.currentQuantityRangeSelected = newOffer.ITEM_QUANTITY_RANGE_SELECTED;
 
 				if (this.canBuy)
 				{
+
 					this.node.quantity && BX.style(this.node.quantity, 'display', '');
 
 					this.obBasketActions && BX.style(this.obBasketActions, 'display', '');
@@ -2034,7 +2110,8 @@
 							);
 					}
 
-					this.obQuantity.disabled = !this.canBuy;
+
+					//this.obQuantity.disabled = !this.canBuy;
 
 					if (resetQuantity)
 					{
@@ -2579,7 +2656,7 @@
 					}
 				}
 
-				//this.quantitySet(index);
+				this.quantitySet(index);
 				this.setPrice();
 				this.setButtons();
 				this.setCompared(this.offers[index].COMPARED);
@@ -3164,6 +3241,7 @@
 
 		initBasketUrl: function()
 		{
+			console.log('initBasketUrl'+':'+this.basketData.add_url)
 			if(this.basketMode === 'ADD')
 				this.basketUrl = this.basketData.add_url
 			else if(this.basketMode === 'DEL')
@@ -3186,22 +3264,21 @@
 				'ajax_basket': 'Y'
 			};
 
-			if (this.config.showQuantity)
+			/*if (this.config.showQuantity)
 			{
 				this.basketParams[this.basketData.quantity] = this.obQuantity.value;
-			}
+			}*/
 
 			if (this.basketData.sku_props)
 			{
 				this.basketParams[this.basketData.sku_props_var] = this.basketData.sku_props;
 			}
 		},
-
 		fillBasketProps: function()
 		{
+
 			if (!this.visual.BASKET_PROP_DIV)
 				return;
-
 			var
 				i = 0,
 				propCollection = null,
@@ -3283,7 +3360,8 @@
 				return;
 			this.initBasketUrl();
 			this.fillBasketProps();
-			console.log('sendToBasket');
+			console.log(this.basketUrl);
+			console.log(this.basketParams);
 			this.setInBasket(this.offers[this.offerNum].ID, 'add');
 			BX.ajax({
 				method: 'POST',
@@ -3292,6 +3370,61 @@
 				data: this.basketParams,
 				onsuccess: BX.proxy(this.basketResult, this)
 			});
+		},
+		sendToSalesPitch: function(){
+			//here
+			console.log('sendToSalesPitch');
+			if (!this.canBuy)
+				return;
+			this.initSalesPitchUrl();
+			/*this.fillBasketProps();*/
+			this.setInSalesPitch(this.offers[this.offerNum].ID, 'add');
+			BX.ajax({
+				method: 'POST',
+				dataType: 'json',
+				url: this.salesPitchUrl,
+				data: this.basketParams,
+				onsuccess: function(){
+					console.log(data);
+				}
+				//onsuccess: BX.proxy(this.basketResult, this)
+			});
+			//here
+		},
+		initSalesPitchUrl: function()
+		{
+			console.log(this.salesPitchData.add_url);
+			if(this.salesPitchMode === 'ADD')
+				this.salesPitchUrl = this.salesPitchData.add_url
+			else if(this.offersMode === 'DEL')
+				this.salesPitchUrl = this.salesPitchData.del_url
+			else
+				this.salesPitchUrl = this.salesPitchData.buy_url
+			switch (this.productType)
+			{
+				case 1: // product
+				case 2: // set
+					this.salesPitchUrl = this.basketUrl.replace('#ID#', this.product.id.toString());
+					break;
+				case 3: // sku
+					this.salesPitchUrl = this.basketUrl.replace('#ID#', this.offers[this.offerNum].ID);
+					break;
+			}
+
+			this.basketParams = {
+				'ajax_basket': 'Y'
+			};
+
+			/*if (this.config.showQuantity)
+			{
+				console.log(this.obQuantity);
+				this.basketParams[this.basketData.quantity] = this.obQuantity.value;
+			}*/
+			console.log(this.basketData.sku_props)
+			if (this.basketData.sku_props)
+			{
+				this.basketParams[this.basketData.sku_props_var] = this.basketData.sku_props;
+			}
 		},
 
 		add2Basket: function()
@@ -3319,6 +3452,11 @@
 			this.basketMode = 'BUY';
 			this.basket();
 
+		},
+		obAddSalesPitch: function(){
+			console.log('obAddSalesPitch');
+			this.salesPitchMode = 'ADD';
+			this.salesPitch();
 		},
 		deleteBasket: function()
 		{
@@ -3361,6 +3499,28 @@
 			}
 			this.checkButtonBasket();
 		},
+		setInSalesPitch: function(data, action){
+			//here
+			if(action){
+				var indx = this.salesPitchData.in_prop.indexOf(data)
+				console.log(indx)
+				if(indx != -1 && indx >=0){
+					if(action == 'del'){
+						this.salesPitchData.in_prop.splice(indx, 1);
+					}
+				}else{
+					if(action == 'add'){
+						this.salesPitchData.in_prop.push(data);
+					}
+				}
+			}else{
+				this.salesPitchData.in_prop = data;
+			}
+			if (!this.salesPitch.checkSetInBasket){
+				this.salesPitch.checkSetInBasket = true;
+			}
+			this.checkButtonSalesPitch();
+		},
 		checkButtonBasket: function(){
 			var buyLinks = document.getElementsByClassName('buy-link');
 			if(this.basketData.in_basket.indexOf(this.offers[this.offerNum].ID) >= 0){
@@ -3375,6 +3535,21 @@
 				}
 			}
 			this.crtRefreshCart();
+		},
+		checkButtonSalesPitch: function(){
+			var buyLinks = document.getElementsByClassName('sales-pitch');
+			if(this.basketData.in_basket.indexOf(this.offers[this.offerNum].ID) >= 0){
+				for(var l=0; l<buyLinks.length;l++){
+					buyLinks[l].classList.add('added');
+					buyLinks[l].querySelector('span').innerText = "Добавлено в КП";
+				}
+			}else{
+				for(var l=0; l<buyLinks.length;l++){
+					buyLinks[l].classList.remove('added');
+					buyLinks[l].querySelector('span').innerText = "Добавить в КП";
+				}
+			}
+			this.refreshSalesPitch();
 		},
 		basket: function()
 		{
@@ -3416,6 +3591,46 @@
 					break;
 			}
 		},
+		salesPitch: function(){
+			console.log('offerProp');
+			var contentBasketProps = '';
+			if (!this.canBuy)
+				return;
+			switch (this.productType)
+			{
+				case 1: // product
+				case 2: // set
+					if (this.basketData.useProps && !this.basketData.emptyProps)
+					{
+						this.initPopupWindow();
+						this.obPopupWin.setTitleBar(BX.message('TITLE_BASKET_PROPS'));
+
+						if (BX(this.visual.BASKET_PROP_DIV))
+						{
+							contentBasketProps = BX(this.visual.BASKET_PROP_DIV).innerHTML;
+						}
+
+						this.obPopupWin.setContent(contentBasketProps);
+						this.obPopupWin.setButtons([
+							new BasketButton({
+								text: BX.message('BTN_SEND_PROPS'),
+								events: {
+									click: BX.delegate(this.sendToBasket, this)
+								}
+							})
+						]);
+						this.obPopupWin.show();
+					}
+					else
+					{
+						this.sendToBasket();
+					}
+					break;
+				case 3: // sku
+					this.sendToSalesPitch();
+					break;
+			}
+		},
 		echoBasket: function(){
 			//console.log(this.basketData);
 		},
@@ -3438,19 +3653,20 @@
 			});
 		},
 		crtRefreshCart:function(action = ''){
-			/*var buyLinks = document.getElementsByClassName('buy-link');
-			if(action == 'add'){
-				for(var l=0; l<buyLinks.length;l++){
-					buyLinks[l].classList.add('added');
+			BX.ajax({
+				url: '/local/ajax/basket.php',
+				method: 'POST',
+				dataType: 'json',
+				data: {'refresh_basket':'y'},
+				onsuccess: function (data){
+					document.getElementById('basket_count').textContent = data.count;
+					document.getElementById('basket_count_desc').textContent = data.count;
+					document.getElementById('basket_total_desc').textContent = data.total;
 				}
-				console.log("add");
-			}
-			if(action == 'del'){
-				for(var l=0; l<buyLinks.length;l++){
-					buyLinks[l].classList.remove('added');
-				}
-				console.log("del");
-			}*/
+			});
+		},
+		refreshSalesPitch:function(action = ''){
+			//here
 			BX.ajax({
 				url: '/local/ajax/basket.php',
 				method: 'POST',

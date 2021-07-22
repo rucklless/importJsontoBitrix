@@ -1340,4 +1340,10 @@ $arTemplateParameters['DETAIL_SHOW_VIEWED'] = array(
 
 // hack to hide component parameters by templates
 $arTemplateParameters['HIDE_USE_ALSO_BUY'] = array();
+
+$arTemplateParameters['YOBBA'] = array(
+	'PARENT' => 'OTHER',
+	'NAME' => 'ТЕСТ',
+	'TYPE' => 'STRING'
+);
 ?>

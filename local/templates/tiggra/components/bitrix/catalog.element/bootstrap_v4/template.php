@@ -57,6 +57,10 @@ $itemIds = array(
 	'DELETE_LINK' => $mainId.'_delete_link',
 	'ADD_BASKET_LINK' => $mainId.'_add_basket_link',
 	'BASKET_ACTIONS_ID' => $mainId.'_basket_actions',
+	'SALES_PITCH_LINK' => $mainId.'_sales_pitch_link',
+	'SALES_PITCH_DEL_LINK' => $mainId.'_del_sales_pitch_link',
+	'ADD_SALES_PITCH_LINK' => $mainId.'_add_sales_pitch_link',
+	'BASKET_ACTIONS_ID' => $mainId.'_basket_actions',
 	'NOT_AVAILABLE_MESS' => $mainId.'_not_avail',
 	'COMPARE_LINK' => $mainId.'_compare_link',
 	'TREE_ID' => $mainId.'_skudiv',
@@ -465,8 +469,8 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 						<?
 					}
 					?>
-					<div class="add-prop">
-						<a class="prop-link temp-bg-button ripple"><i class="fa fa-list-alt"></i><span>Добавить в КП</span></a>
+					<div class="add-sales-pitch">
+						<a class="sales-pitch temp-bg-button ripple" id="<?=$itemIds['SALES_PITCH_LINK']?>"><i class="fa fa-list-alt"></i><span>Добавить в КП</span></a>
 					</div>
 
 					<?/*div class="product-item-amount">
@@ -1445,6 +1449,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 		<?
 	}
 	?>
+
 	<?
 	if ($haveOffers)
 	{
@@ -1604,10 +1609,19 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 				'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE'],
 				'DEL_URL_TEMPLATE' => $arResult['DEL_URL_TEMPLATE']
 			),
+			'SALES_PITCH' => array(
+				'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
+				'SALES_PITCH_URL' => $arParams['SALES_PITCH_URL'],
+				'SKU_PROPS' => $arResult['OFFERS_PROP_CODES'],
+				'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
+				'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE'],
+				'DEL_URL_TEMPLATE' => $arResult['DEL_URL_TEMPLATE']
+			),
 			'OFFERS' => $arResult['JS_OFFERS'],
 			'OFFER_SELECTED' => $arResult['OFFERS_SELECTED'],
 			'TREE_PROPS' => $skuProps
 		);
+		?><pre><?print_r($arResult['~ADD_URL_TEMPLATE'])?></pre><?
 	}
 	else
 	{

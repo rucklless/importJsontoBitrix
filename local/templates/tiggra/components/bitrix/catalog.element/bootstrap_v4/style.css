@@ -111,11 +111,11 @@
           border-bottom:1px dashed #000;*/
 }
 
-.detail-page .price-block .add-prop .prop-link i {
+.detail-page .price-block .add-prop .sales-pitch i {
 	margin-right: 0.3em;
 }
 
-.detail-page .price-block .add-cart, .detail-page .price-block .add-prop{
+.detail-page .price-block .add-cart, .detail-page .price-block .add-sales-pitch{
 	display: flex;
 }
 

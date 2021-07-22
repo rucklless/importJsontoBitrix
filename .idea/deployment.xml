@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="creaprint" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="creaprint" autoUploadExternalChanges="true" showExcludedInSync="true">
     <serverData>
       <paths name="creaprint">
         <serverdata>
           <mappings>
-            <mapping deploy="/tiggra/public_html" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
           <excludedPaths>
-            <excludedPath path="/tiggra/public_html/bitrix" />
-            <excludedPath path="/tiggra/public_html/upload" />
-            <excludedPath local="true" path="$PROJECT_DIR$/bitrix" />
-            <excludedPath local="true" path="$PROJECT_DIR$/upload" />
+            <excludedPath path="/upload" />
+            <excludedPath path="/bitrix/backup" />
+            <excludedPath path="/bitrix/managed_cache" />
+            <excludedPath path="/bitrix/tmp" />
+            <excludedPath path="/bitrix/cache" />
+            <excludedPath path="/bitrix/catalog_export" />
+            <excludedPath path="/bitrix/fonts" />
+            <excludedPath path="/bitrix/images" />
+            <excludedPath path="/bitrix/stack_cache" />
+            <excludedPath path="/bitrix/modules" />
           </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="diotech">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
         </serverdata>
       </paths>
       <paths name="kutuluk">
