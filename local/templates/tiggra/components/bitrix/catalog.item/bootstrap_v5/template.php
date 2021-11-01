@@ -14,7 +14,6 @@ use \Bitrix\Main;
  */
 
 $this->setFrameMode(true);
-
 if (isset($arResult['ITEM']))
 {
 	$item = $arResult['ITEM'];
@@ -291,6 +290,10 @@ if (isset($arResult['ITEM']))
 		<script>
 		  var <?=$obName?> = new JCCatalogItem(<?=CUtil::PhpToJSObject($jsParams, false, true)?>);
 		</script>
+		<?/*php if($item['ID'] == 1636){
+			?><pre><?print_r($jsParams)?></pre><?
+		}*/?>
+
 	</div>
 	<?
 	unset($item, $actualItem, $minOffer, $itemIds, $jsParams);

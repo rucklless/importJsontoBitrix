@@ -22,7 +22,22 @@ use \Bitrix\Main\Localization\Loc;
  * @var CatalogSectionComponent $component
  */
 ?>
+<script>
+	BX.Vue.component('bx-component', {
+		template: '<div>Мое первое Vue приложение!!</div>'
+	});
+
+	BX.Vue.create({
+		el: '#vue-application',
+		template: '<bx-component/>'
+	});
+</script>
+<?php if($item['ID'] == 1636){
+	/*?><pre><?print_r($item)?></pre><?php*/
+	/*?><pre><?print_r($morePhoto)?></pre><?php*/
+}?>
 <div class="item-goods">
+	<div id="vue-application"></div>
 	<i class="fa fa-heart-o"></i>
 	<i class="fa fa-bookmark-o"></i>
 	<div class="img">

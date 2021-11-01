@@ -7,8 +7,8 @@
 	var BasketButton = function(params)
 	{
 		BasketButton.superclass.constructor.apply(this, arguments);
-		this.buttonNode = BX.create('button', {
-			props: {className: 'btn btn-primary btn-buy btn-sm', id: this.id},
+		this.buttonNode = BX.create('span', {
+			props: {className: 'btn btn-default btn-buy btn-sm', id: this.id},
 			style: typeof params.style === 'object' ? params.style : {},
 			text: params.text,
 			events: this.contextEvents
@@ -20,6 +20,7 @@
 		}
 	};
 	BX.extend(BasketButton, BX.PopupWindowButton);
+
 	window.JCCatalogItem = function (arParams)
 	{
 		this.productType = 0;
@@ -727,7 +728,6 @@
 			{
 				case 'addToCart':
 					info = {
-						'event': 'addToCart',
 						'ecommerce': {
 							'currencyCode': this.currentPrices[this.currentPriceSelected] && this.currentPrices[this.currentPriceSelected].CURRENCY || '',
 							'add': {
@@ -1201,7 +1201,7 @@
 					{
 						if (controls.hasOwnProperty(i))
 						{
-							BX.bind(controls[i], 'click', BX.proxy(this.sliderClickHandler, this));
+							BX.bind(controls[i], 'mouseover', BX.proxy(this.sliderClickHandler, this));
 						}
 					}
 				}
@@ -1354,7 +1354,7 @@
 					BX.removeClass(next, type);
 					BX.removeClass(next, direction);
 					self.slider.sliding = false;
-				}, 700);
+				}, 0);
 			}
 			else
 			{
@@ -1818,7 +1818,7 @@
 								this.obPictSliderIndicator.appendChild(
 									BX.create('DIV', {
 										attrs: {'data-go-to': i},
-										props: {className: 'product-item-image-slider-control-b5' + (i == 0 ? ' active' : '')}
+										props: {className: 'product-item-image-slider-control' + (i == 0 ? ' active' : '')}
 									})
 								);
 								this.obPictSliderIndicator.appendChild(document.createTextNode(' '));
@@ -2064,8 +2064,8 @@
 					{
 						BX.adjust(this.obPriceTotal, {
 							html: BX.message('PRICE_TOTAL_PREFIX') + ' <strong>'
-							+ BX.Currency.currencyFormat(price.PRICE * this.obQuantity.value, price.CURRENCY, true)
-							+ '</strong>',
+								+ BX.Currency.currencyFormat(price.PRICE * this.obQuantity.value, price.CURRENCY, true)
+								+ '</strong>',
 							style: {display: ''}
 						});
 					}
@@ -2433,7 +2433,7 @@
 			{
 				this.rememberProductRecommendation();
 			}
-
+			console.log(this.basketUrl);
 			this.initBasketUrl();
 			this.fillBasketProps();
 			BX.ajax({

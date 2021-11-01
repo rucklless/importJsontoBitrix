@@ -210,7 +210,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 											$item = reset($rowItems);
 											$APPLICATION->IncludeComponent(
 												'bitrix:catalog.item',
-												'',
+												'bootstrap_v5',
 												array(
 													'RESULT' => array(
 														'ITEM' => $item,
@@ -250,7 +250,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 												<?
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
-													'',
+													'bootstrap_v5',
 													array(
 														'RESULT' => array(
 															'ITEM' => $item,
@@ -293,7 +293,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 												<?
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
-													'',
+													'bootstrap_v5',
 													array(
 														'RESULT' => array(
 															'ITEM' => $item,
@@ -334,7 +334,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $item,
@@ -371,7 +371,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
-										'',
+										'bootstrap_v5',
 										array(
 											'RESULT' => array(
 												'ITEM' => $item,
@@ -403,7 +403,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $rowItems[$i],
@@ -443,7 +443,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $rowItems[$i],
@@ -474,7 +474,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
-										'',
+										'bootstrap_v5',
 										array(
 											'RESULT' => array(
 												'ITEM' => $item,
@@ -511,7 +511,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $item,
@@ -548,7 +548,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
-										'',
+										'bootstrap_v5',
 										array(
 											'RESULT' => array(
 												'ITEM' => $item,
@@ -580,7 +580,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $rowItems[$i],
@@ -620,7 +620,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $rowItems[$i],
@@ -651,7 +651,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
-										'',
+										'bootstrap_v5',
 										array(
 											'RESULT' => array(
 												'ITEM' => $item,
@@ -688,7 +688,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $item,
@@ -729,7 +729,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 		// load css for bigData/deferred load
 		$APPLICATION->IncludeComponent(
 			'bitrix:catalog.item',
-			'',
+			'bootstrap_v5',
 			array(),
 			$component,
 			array('HIDE_ICONS' => 'Y')

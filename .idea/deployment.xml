@@ -2,7 +2,33 @@
 <project version="4">
   <component name="PublishConfigData" autoUpload="Always" serverName="creaprint" autoUploadExternalChanges="true" showExcludedInSync="true">
     <serverData>
+      <paths name="blackwork">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="creaprint">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/upload" />
+            <excludedPath path="/bitrix/backup" />
+            <excludedPath path="/bitrix/managed_cache" />
+            <excludedPath path="/bitrix/tmp" />
+            <excludedPath path="/bitrix/cache" />
+            <excludedPath path="/bitrix/catalog_export" />
+            <excludedPath path="/bitrix/fonts" />
+            <excludedPath path="/bitrix/images" />
+            <excludedPath path="/bitrix/stack_cache" />
+            <excludedPath path="/bitrix/modules" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="creaprint (project level)">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
@@ -28,6 +54,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="guildm">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="kutuluk">
         <serverdata>
           <mappings>
@@ -42,6 +75,27 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="naizfoto">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="naizlocal">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="naizlocal (1)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="rassweb">
         <serverdata>
           <mappings>
@@ -49,7 +103,35 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="rassweb-server">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="renthouse">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="septemb">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="sheifer">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="tigrra">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

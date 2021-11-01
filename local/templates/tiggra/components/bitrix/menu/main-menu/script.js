@@ -1,22 +1,16 @@
-var jshover = function()
-{
-	var menuDiv = document.getElementById("horizontal-multilevel-menu")
-	if (!menuDiv)
-		return;
+$(document).on('click', '.dropdown-menu', function (e) {
+	e.stopPropagation();
+});
 
-	var sfEls = menuDiv.getElementsByTagName("li");
-	for (var i=0; i<sfEls.length; i++) 
-	{
-		sfEls[i].onmouseover=function()
-		{
-			this.className+=" jshover";
-		}
-		sfEls[i].onmouseout=function() 
-		{
-			this.className=this.className.replace(new RegExp(" jshover\\b"), "");
-		}
-	}
+if ($(window).width() < 992) {
+
+	$('.has-submenu a').click(function(e){
+		e.preventDefault();
+		$(this).next('.megasubmenu').toggle();
+
+		$('.dropdown').on('hide.bs.dropdown', function () {
+			$(this).find('.megasubmenu').hide();
+		})
+	});
+
 }
-
-if (window.attachEvent) 
-	window.attachEvent("onload", jshover);

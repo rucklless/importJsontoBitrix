@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="836412a0-a2e8-493f-b482-272604db4357" name="creaprint">
+      <webServer id="836412a0-a2e8-493f-b482-272604db4357" name="creaprint (project level)">
         <fileTransfer rootFolder="/home/c/creaprint/tigrra/public_html" accessType="SFTP" host="5.23.51.100" port="22" sshConfigId="5e59035c-9e3d-4522-823e-d7357fa1c29d" sshConfig="creaprint@5.23.51.100:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />

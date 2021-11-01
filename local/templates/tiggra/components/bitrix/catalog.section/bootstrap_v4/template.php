@@ -200,7 +200,6 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 					$this->AddEditAction($uniqueId, $item['EDIT_LINK'], $elementEdit);
 					$this->AddDeleteAction($uniqueId, $item['DELETE_LINK'], $elementDelete, $elementDeleteParams);
 
-
 					$APPLICATION->IncludeComponent(
 						'bitrix:catalog.item',
 						'bootstrap_v5',

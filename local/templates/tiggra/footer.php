@@ -6,45 +6,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	</div> <!--container-->
 <?endif;?>
 </div>
-<nav id="mmenu">
-	<div id="panel-menu">
-		<ul>
-			<li><a href="#/">Home</a></li>
-			<li><span>About us</span>
-				<ul>
-					<li><a href="#/">History</a></li>
-					<li><span>The team</span>
-						<ul>
-							<li><a href="#/">Management</a></li>
-							<li><a href="#/">Sales</a></li>
-							<li><a href="#/">Development</a></li>
-						</ul>
-					</li>
-					<li><a href="#/">Our address</a></li>
-				</ul>
-			</li>
-			<li><a href="#/">Contact</a></li>
 
-			<li class="Divider">Other demos</li>
-			<li><a href="default.html">Default demo</a></li>
-			<li><a href="onepage.html">One page demo</a></li>
-		</ul>
-	</div>
-
-	<div id="panel-account">
-		<ul>
-			<li><a href="#/">My profile</a></li>
-			<li><a href="#/">Privacy settings</a></li>
-			<li><a href="#/">Activity</a></li>
-			<li><a href="#/">Sign out</a></li>
-		</ul>
-	</div>
-
-	<div id="panel-cart">
-		<p style="text-align: center; padding-top: 30px;">Your shoppingcart is empty.<br />
-			<a href="#/">Continue shopping.</a></p>
-	</div>
-</nav>
 <footer class="footer">
 	<div class="footer-top">
 		<div class="container">
@@ -154,13 +116,6 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 			navbars		: [
 				{
 					content		: [ 'searchfield' ]
-				}, {
-					type		: 'tabs',
-					content		: [
-						'<a href="#panel-menu"><i class="fa fa-bars"></i> <span>Menu</span></a>',
-						'<a href="#panel-account"><i class="fa fa-user"></i> <span>Account</span></a>',
-						'<a href="#panel-cart"><i class="fa fa-shopping-cart"></i> <span>Cart</span></a>'
-					]
 				}, {
 					content		: [ 'prev', 'breadcrumbs', 'close' ]
 				}

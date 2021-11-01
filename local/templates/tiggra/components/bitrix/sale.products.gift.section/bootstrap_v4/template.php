@@ -148,7 +148,7 @@ $containerName = 'sale-products-gift-container';
 									$item = reset($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
-										'bootstrap_v4',
+										'bootstrap_v5',
 										array(
 											'RESULT' => array(
 												'ITEM' => $item,
@@ -178,7 +178,7 @@ $containerName = 'sale-products-gift-container';
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'bootstrap_v4',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $item,
@@ -209,7 +209,7 @@ $containerName = 'sale-products-gift-container';
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'bootstrap_v4',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $item,
@@ -240,7 +240,7 @@ $containerName = 'sale-products-gift-container';
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'bootstrap_v4',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $item,
@@ -271,7 +271,7 @@ $containerName = 'sale-products-gift-container';
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
-										'bootstrap_v4',
+										'bootstrap_v5',
 										array(
 											'RESULT' => array(
 												'ITEM' => $item,
@@ -301,7 +301,7 @@ $containerName = 'sale-products-gift-container';
 												<?
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
-													'bootstrap_v4',
+													'bootstrap_v5',
 													array(
 														'RESULT' => array(
 															'ITEM' => $rowItems[$i],
@@ -341,7 +341,7 @@ $containerName = 'sale-products-gift-container';
 												<?
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
-													'bootstrap_v4',
+													'bootstrap_v5',
 													array(
 														'RESULT' => array(
 															'ITEM' => $rowItems[$i],
@@ -370,7 +370,7 @@ $containerName = 'sale-products-gift-container';
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
-										'bootstrap_v4',
+										'bootstrap_v5',
 										array(
 											'RESULT' => array(
 												'ITEM' => $item,
@@ -401,7 +401,7 @@ $containerName = 'sale-products-gift-container';
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'bootstrap_v4',
+											'bootstrap_v5',
 											array(
 												'RESULT' => array(
 													'ITEM' => $item,
@@ -433,7 +433,7 @@ $containerName = 'sale-products-gift-container';
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
-										'bootstrap_v4',
+										'bootstrap_v5',
 										array(
 											'RESULT' => array(
 												'ITEM' => $item,
@@ -463,7 +463,7 @@ $containerName = 'sale-products-gift-container';
 												<?
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
-													'bootstrap_v4',
+													'bootstrap_v5',
 													array(
 														'RESULT' => array(
 															'ITEM' => $rowItems[$i],
@@ -503,7 +503,7 @@ $containerName = 'sale-products-gift-container';
 												<?
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
-													'bootstrap_v4',
+													'bootstrap_v5',
 													array(
 														'RESULT' => array(
 															'ITEM' => $rowItems[$i],
@@ -532,7 +532,7 @@ $containerName = 'sale-products-gift-container';
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
-										'bootstrap_v4',
+										'bootstrap_v5',
 										array(
 											'RESULT' => array(
 												'ITEM' => $item,
@@ -594,7 +594,7 @@ $containerName = 'sale-products-gift-container';
 				// load css for bigData/deferred load
 				$APPLICATION->IncludeComponent(
 					'bitrix:catalog.item',
-					'',
+					'bootstrap_v5',
 					array(),
 					$component,
 					array('HIDE_ICONS' => 'Y')
