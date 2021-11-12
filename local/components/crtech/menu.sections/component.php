@@ -133,6 +133,7 @@ foreach($arResult["SECTIONS"] as $arSection)
 			"FROM_IBLOCK" => true,
 			"IS_PARENT" => false,
 			"DEPTH_LEVEL" => $arSection["DEPTH_LEVEL"],
+			"ID" => $arSection["ID"],
 		),
 	);
 }
