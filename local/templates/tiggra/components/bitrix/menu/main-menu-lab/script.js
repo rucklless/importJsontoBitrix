@@ -3,6 +3,10 @@ BX.ready(function(){
 		$(".slide-menu").toggleClass("slide-left");
 		$("body").toggleClass("overflow-hidden");
 	});
+	$("#hamburger-mobile-icon").click(function(){
+		$(".slide-menu").toggleClass("slide-left");
+		$("body").toggleClass("overflow-hidden");
+	});
 
 //  Menu Add Class Close
 	$('.slide-close-button button, .mdl-layout__obfuscator').click(function(){

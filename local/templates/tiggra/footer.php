@@ -101,10 +101,10 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 		</div>
 	</div>
 </footer>
-<script src="/local/templates/tiggra/assets/mobile-menu/mmenu.js"></script>
-<script src="/local/templates/tiggra/assets/mobile-menu/mmenu.polyfills.js"></script>
+<!--script src="/local/templates/tiggra/assets/mobile-menu/mmenu.js"></script>
+<script src="/local/templates/tiggra/assets/mobile-menu/mmenu.polyfills.js"></script-->
 <script>
-	new Mmenu(
+	/*new Mmenu(
 		document.querySelector('#mmenu'),
 		{
 			extensions	: [ 'theme-white', 'shadow-page' ],
@@ -138,7 +138,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 			alert('Thank you for clicking, but that\'s a demo link.');
 			evnt.preventDefault();
 		}
-	});
+	});*/
 </script>
 
 

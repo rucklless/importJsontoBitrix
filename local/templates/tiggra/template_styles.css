@@ -2,8 +2,13 @@
     --theme-color: #FF6100;
     --theme-text: #333;
     --theme-color-01: rgba(255,97,0, 0.1);
+    --logo-height:80px;
 }
-
+/*@media (min-width: 856px) {
+    :root{
+        --logo-height:90px;
+    }
+}*/
 
 
 html {

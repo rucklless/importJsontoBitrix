@@ -47,6 +47,8 @@ foreach($arResult as $arItem):
 				activeSubmenu: arrResult[0].ITEMS,
 				activeMenuIndex:0,
 				mousePosX: 0,
+				windowWidth: window.innerWidth,
+				alreadiOnMobileMenu:false,
 			}
 		},
 		methods:{
@@ -63,92 +65,103 @@ foreach($arResult as $arItem):
 					}
 				} ,200)
 			},
+			updateWindowWidth() {
+				this.windowWidth = window.innerWidth;
+			},
+			slideMenu(){
+				const menuRightElem = document.getElementById('mobile-menu');
+				if(menuRightElem && this.alreadiOnMobileMenu !== true){
+					const menuRight = new SlideMenu(menuRightElem, {
+						keyClose: 'Escape',
+						submenuLinkAfter: '<span><i class="fa fa-angle-right"></i></span>',
+						backLinkBefore: '<span><i class="fa fa-angle-left"></i></span>',
+					});
+					this.alreadiOnMobileMenu = true
+				}
+			}
 		},
 		computed:{
-			/*submenu(){
-				if(this.activeSubmenu === undefined)
-					this.activeSubmenu = this.list[0].ITEMS
-				return this.list[0].ITEMS
-			}*/
+			showMobileMenu(){
+				if(this.windowWidth<800){
+					this.slideMenu();
+					return true
+				}else{
+					this.alreadiOnMobileMenu = false
+					return false
+				}
+
+			}
+		},
+		created() {
+			window.addEventListener('resize', this.updateWindowWidth);
+		},
+		mounted() {
+			this.slideMenu();
 		},
 		template: `
 			<div class="slide-menu" @mousemove="getMousePosX()">
-				<div class="slide-left">
-					<div class="slide-logo"></div>
-					<div class="slide-left-menu vue-slide">
-								<ul>
-									<li v-for="(item, index) in list"><a :href='item.LINK' :data-list-id="index" @mouseover="selectSubmenu(index)" @mouseleave="activeMenuIndex = false">{{item.TEXT}}</a></li>
-								</ul>
-					</div>
+
+				<div class="slide-logo">
+
 				</div>
-				<div class="slide-right">
-					<div class="slide-close-button">
-						<button class="close"><i class="fa fa-close"></i></button>
-					</div>
-					<div class="second-list slide-menu-here">
-						<ul>
-							<li v-for="(item, index) in activeSubmenu"><a :href='item.LINK' :data-list-id="index" class="second-item">{{item.TEXT}}</a>
-								<div class="third-list">
-									<ul v-if='item.IS_PARENT === true'>
+				<div class="slide-close-button">
+					<button class="close"><i class="fa fa-close"></i></button>
+				</div>
+				<div class="deliter" v-if='!showMobileMenu'></div>
+				<div class="slide-left-menu vue-slide">
+					<ul v-if='!showMobileMenu'>
+						<li v-for="(item, index) in list"><a :href='item.LINK' :data-list-id="index" @mouseover="selectSubmenu(index)" @mouseleave="activeMenuIndex = false">{{item.TEXT}}</a></li>
+					</ul>
+
+					<nav class="mm-menu mm-menu_opened" id="menu" v-else  style="z-index: 99999">
+						<div id="panel-menu">
+							<ul>
+								<li v-for="(item, index) in list">
+									<span v-if="item.IS_PARENT === true">{{item.TEXT}}</span>
+									<a v-else :href='item.LINK'>
+										{{item.TEXT}}
+									</a>
+									<ul v-if="item.IS_PARENT === true">
+										<li v-for="(subitem, subindex) in item.ITEMS">
+											<span v-if="subitem.IS_PARENT === true">{{subitem.TEXT}}</span>
+											<a v-else :href="subitem.LINK">{{subitem.TEXT}}</a>
+											<ul v-if="subitem.IS_PARENT === true">
+												<li v-for="(subsubitem, subsubindex) in subitem.ITEMS">
+													<a :href="subsubitem.LINK">{{subsubitem.TEXT}}</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+
+				<div class="second-list slide-menu-here" v-if='!showMobileMenu'>
+					<ul>
+						<li v-for="(item, index) in activeSubmenu"><a :href='item.LINK' :data-list-id="index" class="second-item">{{item.TEXT}}</a>
+							<div class="third-list">
+								<ul v-if='item.IS_PARENT === true'>
 									<li v-for="subitem in item.ITEMS">
 										<a :href="subitem.LINK" class="third-item">{{subitem.TEXT}}</a>
 									</li>
 								</ul>
-								</div>
-							</li>
-						</ul>
-					</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
-			<div class="mdl-layout__obfuscator"></div>
+<div class="mdl-layout__obfuscator"></div>
 		`
 	})
 
 	menu.mount('#vue-menu-application')
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<?php
+	$this->addExternalJS($templateFolder."/assets/slide.js");
+?>
 <script>
-	/*BX.Vue.component('bx-component', {
-		data(){
-			return {
-				list: <?echo json_encode($arResult)?>,
-				sublist:{},
-			}
-		},
-		computed:{
 
-		},
-		method:{
-			activeSubmenu(event){
-				console.log(event)
-				//if(indx === undefined)
-				//{
-					//indx = 0
-				//}
-				//return indx
-				//return this.list[index].ITEMS
-			}
-		},
-		template:
-			`<ul class="slide-left-menu vue-slide">
-				<li v-for="(item, index) in list"><a :href='item.LINK' :data-list-id="index" @mouseover="activeSubmenu">{{item.TEXT}}</a></li>
-			</ul>`,
-	});*/
-	/*BX.Vue.create({
-		el: '#vue-application',
-		template: '<bx-component/>'
-	});*/
 </script>
-

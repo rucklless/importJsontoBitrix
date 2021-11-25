@@ -47,7 +47,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 						<div class="container">
 							<div class="row wrapper">
 								<div class="d-lg-none">
-									<a href="#mmenu" class="mmenu-buttom"><span></span></a>
+									<a id="hamburger-mobile-icon" href="#mmenu" class="mmenu-buttom"><span></span></a>
 								</div>
 								<div class="phone col">
 									<?$APPLICATION->IncludeComponent(
@@ -165,24 +165,24 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 								<div class="row">
 									<div class="col-12 col-lg-10">
 										<?$APPLICATION->IncludeComponent(
-	"bitrix:menu",
-	"main-menu-lab",
-	array(
-		"ALLOW_MULTI_SELECT" => "N",
-		"CHILD_MENU_TYPE" => "left",
-		"DELAY" => "N",
-		"MAX_LEVEL" => "4",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"ROOT_MENU_TYPE" => "main",
-		"USE_EXT" => "Y",
-		"COMPONENT_TEMPLATE" => "main-menu-mm"
-	),
-	false
-);?>
+											"bitrix:menu",
+											"main-menu-lab",
+											array(
+												"ALLOW_MULTI_SELECT" => "N",
+												"CHILD_MENU_TYPE" => "left",
+												"DELAY" => "N",
+												"MAX_LEVEL" => "4",
+												"MENU_CACHE_GET_VARS" => array(
+												),
+												"MENU_CACHE_TIME" => "3600",
+												"MENU_CACHE_TYPE" => "A",
+												"MENU_CACHE_USE_GROUPS" => "Y",
+												"ROOT_MENU_TYPE" => "main",
+												"USE_EXT" => "Y",
+												"COMPONENT_TEMPLATE" => "main-menu-mm"
+											),
+											false
+										);?>
 									</div>
 									<div class="col-2 d-none d-lg-flex social fix-none">
 										<ul>

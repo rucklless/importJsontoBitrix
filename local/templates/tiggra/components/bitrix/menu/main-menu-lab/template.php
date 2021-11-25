@@ -89,11 +89,3 @@
 		</div> <!-- navbar-collapse.// -->
 
 	</nav>
-<?if (!empty($arResult)):?>
-<ul id="horizontal-multilevel-menu">
-
-
-
-</ul>
-<div class="menu-clear-left"></div>
-<?endif?>
